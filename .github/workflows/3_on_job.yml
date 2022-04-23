@@ -28,3 +28,5 @@ jobs:
         run: ./gradlew assembleRelease
       - name: Print Hello World
         run: echo "3_on_job"
+      - name: Run ktlint
+        run: ./gradlew ktlintCheck
