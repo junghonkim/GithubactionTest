@@ -28,7 +28,9 @@ jobs:
         run: ./gradlew assembleRelease
 
       - name: Print version
-        run:  echo "version tag $version_name"
+        run: |
+          version_name=${GITHUB_REF##*/}
+          echo "Tagging release with tag $version_name"
 
       - name: Upload APK
         uses: actions/upload-artifact@v3
