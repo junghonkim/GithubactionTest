@@ -33,9 +33,9 @@ jobs:
           gradlePath: app/build.gradle
           versionCode: ${{github.run_number}}
 
-        - name: Print version
-          run: |
-            echo "Tagging release with tag $version_name $versionName $versionCode"
+#        - name: Print version
+#          run: |
+#            echo "Tagging release with tag $version_name $versionName $versionCode"
 
         - name: Upload APK
           uses: actions/upload-artifact@v3
