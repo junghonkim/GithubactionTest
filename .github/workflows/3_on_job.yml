@@ -26,7 +26,11 @@ jobs:
         run: chmod +x gradlew
       - name: Build with Gradle
         run: ./gradlew assembleRelease
-      - name: Print Hello World
-        run: echo "3_on_job"
-      - name: Run ktlint
-        run: ./gradlew ktlintCheck
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: app
+          path: app/build/outputs/apk/release
+#      - name: Run ktlint
+#        run: ./gradlew ktlintCheck

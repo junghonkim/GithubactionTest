@@ -22,7 +22,7 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        Log.e(">>>>","branch log4")
         setSupportActionBar(binding.toolbar)
 
         Log.e(">>>>","branch log3")
