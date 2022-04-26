@@ -27,32 +27,8 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew assembleRelease
 
-
-    - name: Signing apk
-        id: Sign
-        uses: r0adkll/sign-android-release@v1
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
         with:
-          releaseDirectory: app/build/outputs/apk/release
-          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
-          alias: ${{ secrets.ALIAS }}
-          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
-          keyPassword: ${{ secrets.KEY_PASSWORD }}
-          
-#      - name: Bump version code
-#        uses: chkfung/android-version-actions@v1.1
-#        with:
-#          gradlePath: app/build.gradle
-#          versionCode: ${{github.run_number}}
-
-
-#        - name: Print version
-#          run: |
-#            echo "Tagging release with tag $version_name $versionName $versionCode"
-
-        - name: Upload APK
-          uses: actions/upload-artifact@v3
-          with:
-            name: app
-            path: app/build/outputs/apk/release
-#      - name: Run ktlint
-#        run: ./gradlew ktlintCheck
+          name: app
+          path: app/build/outputs/apk/release
