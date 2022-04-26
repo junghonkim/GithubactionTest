@@ -27,6 +27,7 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew assembleRelease
 
+
     - name: Signing apk
         id: Sign
         uses: r0adkll/sign-android-release@v1
@@ -42,6 +43,7 @@ jobs:
 #        with:
 #          gradlePath: app/build.gradle
 #          versionCode: ${{github.run_number}}
+
 
 #        - name: Print version
 #          run: |
