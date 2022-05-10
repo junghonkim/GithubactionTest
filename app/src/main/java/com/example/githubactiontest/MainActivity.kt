@@ -22,24 +22,31 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
+        Log.e(">>>>","branch log4")
         setSupportActionBar(binding.toolbar)
+
+        Log.e(">>>>","branch log3")
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
+        Log.e(">>>>","branch log 2")
+        
         binding.fab.setOnClickListener { view ->
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
 
         Log.e(">>>>","branch log")
+
+        Log.e(">>>>","junghoon branch log4")
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.menu_main, menu)
+		Log.e(">>>>","branch log 44")
         return true
     }
 

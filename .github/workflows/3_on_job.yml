@@ -25,6 +25,29 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
       - name: Build with Gradle
-        run: ./gradlew build
-      - name: Print Hello World
-        run: echo "3_on_job"
+        run: ./gradlew assembleRelease
+
+      - name: Build Signed APK
+        uses: victorbnl/build-signed-apk@main
+        with:
+          keystore_b64: ${{ secrets.SIGNING_KEY }}
+          keystore_password: ${{ secrets.KEY_STORE_PASSWORD }}
+          key_alias: ${{ secrets.ALIAS }}
+          key_password: ${{ secrets.KEY_PASSWORD }}
+
+
+#      - name: Signing apk
+#        id: Sign
+#        uses: r0adkll/sign-android-release@v1
+#        with:
+#          releaseDirectory: app/build/outputs/apk/release
+#          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+#          alias: ${{ secrets.ALIAS }}
+#          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+#          keyPassword: ${{ secrets.KEY_PASSWORD }}
+
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: app
+          path: app/build/outputs/apk/release
