@@ -39,6 +39,8 @@ class MainActivity : AppCompatActivity() {
         }
 
         Log.e(">>>>","branch log")
+
+        Log.e(">>>>","junghoon branch log4")
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
