@@ -37,7 +37,7 @@ class FirstFragment : Fragment() {
             findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
         }
 
-        Log.e(">>>>","main commit test1")
+        Log.e(">>>>","main commit test 21")
         Log.e(">>>>","master log cmmit")
     }
 
